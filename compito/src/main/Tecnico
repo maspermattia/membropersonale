@@ -1,0 +1,33 @@
+public class Tecnico extends MembroPersonale {
+    private boolean interno;
+    private String areaCompetenza;
+
+    public Tecnico(String codice, String cognome, String nome, int annoAssunzione, boolean interno, String areaCompetenza) {
+        super(codice, cognome, nome, annoAssunzione);
+        this.interno = interno;
+        this.areaCompetenza = areaCompetenza;
+    }
+
+    public boolean isInterno() {
+        return interno;
+    }
+
+    public String getAreaCompetenza() {
+        return areaCompetenza;
+    }
+
+    public double getCostoOrario() {
+        double costoOrarioBase;
+        if(areaCompetenza.equals("informatica/telecomunicazioni") ){
+            costoOrarioBase=40;
+        } else {
+            costoOrarioBase=50;
+        }
+        if (interno) {
+            int anniTrascorsi = 2023 - getAnnoAssunzione();
+            costoOrario += anniTrascorsi;
+        }
+
+        return costoOrario;
+    }
+}

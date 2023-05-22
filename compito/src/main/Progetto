@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+class Progetto {
+    private List<MembroPersonale> membriPersonale;
+
+    public Progetto() {
+        membriPersonale = new ArrayList<>();
+    }
+
+    public void aggiungiMembro(MembroPersonale membro) {
+        membriPersonale.add(membro);
+    }
+
+    public double getCostoComplessivo() {
+        double costoComplessivo = 0;
+
+        for (MembroPersonale membro : membriPersonale) {
+            costoComplessivo += membro.getCostoOrario();
+        }
+
+        return costoComplessivo;
+    }
+}

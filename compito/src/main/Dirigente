@@ -1,0 +1,9 @@
+public class Dirigente extends MembroPersonale {
+    public Dirigente(String codice, String cognome, String nome, int annoAssunzione) {
+        super(codice, cognome, nome, annoAssunzione);
+    }
+
+    public double getCostoOrario() {
+        return 100;
+    }
+}

@@ -1,0 +1,18 @@
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class ProgettoTest {
+
+    @Test
+    public void testGetCostoComplessivo() {
+        Progetto progetto = new Progetto();
+
+        progetto.aggiungiMembro(new Tecnico("T001", "Rossi", "Mario", 2018, true, "informatica/telecomunicazioni"));
+        progetto.aggiungiMembro(new Funzionario("F001", "Bianchi", "Laura", 2015, 8));
+        progetto.aggiungiMembro(new Dirigente("D001", "Verdi", "Luigi", 2010));
+
+        double costoComplessivo = progetto.getCostoComplessivo();
+        assertEquals(210, costoComplessivo); 
+    }
+}

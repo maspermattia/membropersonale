@@ -1,0 +1,24 @@
+public class Funzionario extends MembroPersonale {
+    private int anniEsperienza;
+
+    public Funzionario(String codice, String cognome, String nome, int annoAssunzione, int anniEsperienza) {
+        super(codice, cognome, nome, annoAssunzione);
+        this.anniEsperienza = anniEsperienza;
+    }
+
+    public int getAnniEsperienza() {
+        return anniEsperienza;
+    }
+
+    public double getCostoOrario() {
+        double costoOrario;
+
+        if (anniEsperienza < 10) {
+            costoOrario = 70;
+        } else {
+            costoOrario = 80;
+        }
+
+        return costoOrario;
+    }
+}
