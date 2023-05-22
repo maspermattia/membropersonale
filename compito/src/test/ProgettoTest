@@ -8,9 +8,9 @@ public class ProgettoTest {
     public void testGetCostoComplessivo() {
         Progetto progetto = new Progetto();
 
-        progetto.aggiungiMembro(new Tecnico("T001", "Rossi", "Mario", 2018, true, "informatica/telecomunicazioni"));
-        progetto.aggiungiMembro(new Funzionario("F001", "Bianchi", "Laura", 2015, 8));
-        progetto.aggiungiMembro(new Dirigente("D001", "Verdi", "Luigi", 2010));
+        progetto.aggiungiMembro(new Tecnico("sd", "masper", "mattia", 2018, true, "informatica/telecomunicazioni"));
+        progetto.aggiungiMembro(new Funzionario("sdf", "gherardi", "victor", 2015, 8));
+        progetto.aggiungiMembro(new Dirigente("sdfas", "matilde", "fumagalli", 2010));
 
         double costoComplessivo = progetto.getCostoComplessivo();
         assertEquals(210, costoComplessivo); 
