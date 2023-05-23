@@ -15,4 +15,58 @@ public class ProgettoTest {
         double costoComplessivo = progetto.getCostoComplessivo();
         assertEquals(210, costoComplessivo); 
     }
+    @Test public void testGetMembri(){
+        Progetto progetto = new Progetto();
+        progetto.aggiungiMembro(new Tecnico("sd", "masper", "mattia", 2018, true, "informatica/telecomunicazioni"));
+        progetto.aggiungiMembro(new Funzionario("sdf", "gherardi", "victor", 2015, 8));
+        progetto.aggiungiMembro(new Dirigente("sdfas", "matilde", "fumagalli", 2010));
+        assertEquals(3, progetto.getMembri().size());
+    }   
+    @Test public void testGetMembriTecnici(){
+        Progetto progetto = new Progetto();
+        progetto.aggiungiMembro(new Tecnico("sd", "masper", "mattia", 2018, true, "informatica/telecomunicazioni"));
+        progetto.aggiungiMembro(new Funzionario("sdf", "gherardi", "victor", 2015, 8));
+        progetto.aggiungiMembro(new Dirigente("sdfas", "matilde", "fumagalli", 2010));
+        assertEquals(1, progetto.getMembriTecnici().size());
+    }
+    @Test public void testGetMembriFunzionari(){
+        Progetto progetto = new Progetto();
+        progetto.aggiungiMembro(new Tecnico("sd", "masper", "mattia", 2018, true, "informatica/telecomunicazioni"));
+        progetto.aggiungiMembro(new Funzionario("sdf", "gherardi", "victor", 2015, 8));
+        progetto.aggiungiMembro(new Dirigente("sdfas", "matilde", "fumagalli", 2010));
+        assertEquals(1, progetto.getMembriFunzionari().size());
+    }
+    @Test public void testGetMembriDirigenti(){
+        Progetto progetto = new Progetto();
+        progetto.aggiungiMembro(new Tecnico("sd", "masper", "mattia", 2018, true, "informatica/telecomunicazioni"));
+        progetto.aggiungiMembro(new Funzionario("sdf", "gherardi", "victor", 2015, 8));
+        progetto.aggiungiMembro(new Dirigente("sdfas", "matilde", "fumagalli", 2010));
+        assertEquals(1, progetto.getMembriDirigenti().size());
+    }
+    @Test public void testRemoveMembro(){
+        Progetto progetto = new Progetto();
+        Tecnico t = new Tecnico("sd", "masper", "mattia", 2018, true, "informatica/telecomunicazioni");
+        progetto.aggiungiMembro(t);
+        progetto.aggiungiMembro(new Funzionario("sdf", "gherardi", "victor", 2015, 8));
+        progetto.aggiungiMembro(new Dirigente("sdfas", "matilde", "fumagalli", 2010));
+        progetto.removeMembro(t);
+        assertEquals(2, progetto.getMembri().size());
+    }
+    @Test public void testGetMembro(){
+        Progetto progetto = new Progetto();
+        Tecnico t = new Tecnico("sd", "masper", "mattia", 2018, true, "informatica/telecomunicazioni");
+        progetto.aggiungiMembro(t);
+        progetto.aggiungiMembro(new Funzionario("sdf", "gherardi", "victor", 2015, 8));
+        progetto.aggiungiMembro(new Dirigente("sdfas", "matilde", "fumagalli", 2010));
+        assertEquals(t, progetto.getMembro("sd"));
+    }
+    @Test public void testGetMembroNull(){
+        Progetto progetto = new Progetto();
+        Tecnico t = new Tecnico("sd", "masper", "mattia", 2018, true, "informatica/telecomunicazioni");
+        progetto.aggiungiMembro(t);
+        progetto.aggiungiMembro(new Funzionario("sdf", "gherardi", "victor", 2015, 8));
+        progetto.aggiungiMembro(new Dirigente("sdfas", "matilde", "fumagalli", 2010));
+        assertEquals(null, progetto.getMembro("sdf"));
+    }
+   
 }

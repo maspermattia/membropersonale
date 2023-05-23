@@ -20,4 +20,29 @@ class Progetto {
 
         return costoComplessivo;
     }
+    public removeMembro(MembroPersonale membro){
+        membriPersonale.remove(membro);
+    }
+    public List<MembroPersonale> getMembri(){
+        return membriPersonale;
+    }
+    public List<MembroPersonale> getMembriTecnici(){
+        List<MembroPersonale> membriTecnici = new ArrayList<>();
+        for (MembroPersonale membro : membriPersonale) {
+            if(membro instanceof Tecnico){
+                membriTecnici.add(membro);
+            }
+        }
+        return membriTecnici;
+    }
+    public List<MembroPersonale> getMembriFunzionari(){
+        List<MembroPersonale> membriFunzionari = new ArrayList<>();
+        for (MembroPersonale membro : membriPersonale) {
+            if(membro instanceof Funzionario){
+                membriFunzionari.add(membro);
+            }
+        }
+        return membriFunzionari;
+    }
+     
 }
